@@ -1,6 +1,6 @@
 {
   "name": "opentelemetry-attribute-sanitizer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Validates and coerces key-value attribute pairs against OpenTelemetry semantic type constraints.",
   "type": "module",
   "main": "src/index.js",
