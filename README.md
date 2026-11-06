@@ -28,3 +28,10 @@ OpenTelemetry instrumentation runs inside host applications and must never throw
 - **Arrays** must be homogeneous. An empty array is dropped because no element type can be inferred for the field descriptor.
 - **BigInt** is coerced to `Number` only when within `Number.MAX_SAFE_INTEGER`; otherwise dropped to avoid silent precision loss. A `BigInt` mixed with a `Number` in an array is treated as homogeneous.
 - Invalid keys and values are silently dropped, never thrown.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
